@@ -1,11 +1,11 @@
 {
   "extends": "../tsconfig",
   "compilerOptions": {
-    "rootDir": "src",
+    "rootDir": ".",
     "composite": true,
     "allowUnreachableCode": false,
-    "noImplicitThis": true,
+    "noImplicitThis": true
   },
-  "include": ["src"],
-  "exclude": ["test"]
+  "include": ["./"],
+  "exclude": ["__tests__"]
 }

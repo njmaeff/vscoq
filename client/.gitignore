@@ -1,7 +1,0 @@
-out
-server
-node_modules
-html_views
-.testUser
-*.vsix
-*.zip

@@ -3,11 +3,11 @@ import * as assert from 'assert';
 
 // You can import and use all API from the 'vscode' module
 // as well as import your extension to test it
-import * as text from '../src/util/AnnotatedText';
-import * as proto from '../src/coqtop/coq-proto';
-import * as db from '../src/coqtop/xml-protocol/deserialize.base';
-import * as d from '../src/coqtop/xml-protocol/deserialize.8.7';
-import * as p from '../src/coqtop/xml-protocol/coq-xml';
+import * as text from '../util/AnnotatedText';
+import * as proto from '../coqtop/coq-proto';
+import * as db from '../coqtop/xml-protocol/deserialize.base';
+import * as d from '../coqtop/xml-protocol/deserialize.8.7';
+import * as p from '../coqtop/xml-protocol/coq-xml';
 import * as stream from 'stream';
 
 // Defines a Mocha test suite to group tests of similar kind together

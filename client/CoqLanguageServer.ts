@@ -39,9 +39,9 @@ export class CoqLanguageServer implements vscode.Disposable {
 
   private constructor(context: ExtensionContext) {
     // The server is implemented in node
-    let serverModule = context.asAbsolutePath(path.join('out', 'server', 'src', 'server.js'));
+    let serverModule = context.asAbsolutePath(path.join('out', 'server', 'server.js'));
     // The debug options for the server
-    let debugOptions = ["--nolazy", "--inspect=6007"];
+    let debugOptions = ["--nolazy", "--inspect-brk=6007"];
 
     // let serverOptions = createServerProcess(serverModule, debugOptions);
     let serverOptions = createServerLocalExtension(serverModule, debugOptions);

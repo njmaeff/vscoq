@@ -7,11 +7,11 @@ import * as fs from 'fs';
 
 // You can import and use all API from the 'vscode' module
 // as well as import your extension to test it
-import * as text from '../src/util/AnnotatedText';
-import * as coqProto from '../src/coqtop/coq-proto';
-import {CoqTop as CoqTop8} from '../src/coqtop/CoqTop8';
-import * as coqtop from '../src/coqtop/CoqTop';
-import * as proto from '../src/protocol';
+import * as text from '../util/AnnotatedText';
+import * as coqProto from '../coqtop/coq-proto';
+import {CoqTop as CoqTop8} from '../coqtop/CoqTop8';
+import * as coqtop from '../coqtop/CoqTop';
+import * as proto from '../protocol';
 import { RemoteConsole } from 'vscode-languageserver';
 
 const COQBIN_8_6 = process.env.COQBIN_8_6 || 'C:/Coq_trunk_build/bin';

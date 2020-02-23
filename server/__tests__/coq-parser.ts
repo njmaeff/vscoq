@@ -1,8 +1,8 @@
 // The module 'assert' provides assertion methods from node
 import * as assert from 'assert';
 
-import * as parser from '../src/parsing/coq-parser';
-import * as ast from '../src/parsing/ast-types';
+import * as parser from '../parsing/coq-parser';
+import * as ast from '../parsing/ast-types';
 
 
 describe("coq-parser", function() {

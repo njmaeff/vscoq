@@ -1,7 +1,7 @@
 // The module 'assert' provides assertion methods from node
 import * as assert from 'assert';
 
-import {CoqProject} from '../src/CoqProject';
+import {CoqProject} from '../CoqProject';
 
 interface ICoqProject {
   parseCoqProject(text: string) : string[];

@@ -3,15 +3,15 @@
 import {Position, Range, TextDocumentContentChangeEvent, DiagnosticSeverity} from 'vscode-languageserver';
 import {CancellationToken} from 'vscode-jsonrpc';
 import * as vscode from 'vscode-languageserver';
-import * as coqProto from './../coqtop/coq-proto';
+import * as coqProto from '../coqtop/coq-proto';
 import * as util from 'util';
-import * as proto from './../protocol';
-import * as textUtil from './../util/text-util';
-import * as coqtop from './../coqtop/CoqTop';
-import * as coqParser from './../parsing/coq-parser';
+import * as proto from '../protocol';
+import * as textUtil from '../util/text-util';
+import * as coqtop from '../coqtop/CoqTop';
+import * as coqParser from '../parsing/coq-parser';
 import * as errorParsing from '../parsing/error-parsing';
 import {State, CoqDiagnostic, StateStatus} from './State';
-import {Mutex} from './../util/Mutex';
+import {Mutex} from '../util/Mutex';
 import * as server from '../server';
 import {AnnotatedText} from '../util/AnnotatedText'
 import * as text from '../util/AnnotatedText'

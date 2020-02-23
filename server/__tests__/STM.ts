@@ -4,9 +4,9 @@ import * as vscode from 'vscode-languageserver';
 import * as vscrpc from 'vscode-jsonrpc';
 import * as semver from 'semver';
 
-import {CoqStateMachine, StateMachineCallbacks} from '../src/stm/STM';
-import {Settings, CoqSettings, CoqTopSettings} from '../src/protocol';
-import * as coqtop from '../src/coqtop/CoqTop';
+import {CoqStateMachine, StateMachineCallbacks} from '../stm/STM';
+import {Settings, CoqSettings, CoqTopSettings} from '../protocol';
+import * as coqtop from '../coqtop/CoqTop';
 
 function getText(text: string, range?: vscode.Range) : string {
   const lines = text.split(/\r\n|\n\r|\n/);

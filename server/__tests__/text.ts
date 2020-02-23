@@ -3,7 +3,7 @@ import * as assert from 'assert';
 
 // You can import and use all API from the 'vscode' module
 // as well as import your extension to test it
-import * as text from '../src/util/AnnotatedText';
+import * as text from '../util/AnnotatedText';
 
 // Defines a Mocha test suite to group tests of similar kind together
 describe("AnnotatedText", () => {
@@ -93,7 +93,7 @@ describe("AnnotatedText", () => {
     const x2 = [notation("["),variable("d"),notation("]")," ",notation("=")," ",notation("[]")];
     assert.deepStrictEqual(text.normalizeText(x2), x2);
   }));
-  
+
 
   it("textSplit", (() => {
     assert.deepStrictEqual(text.textSplit("foo bar", " "), {splits: ["foo", "bar"], rest: []});
@@ -108,7 +108,7 @@ describe("AnnotatedText", () => {
 
   }));
 
-  it("mapAnnotation", (() => {    
+  it("mapAnnotation", (() => {
     let hist : [string,text.Annotation,number,number][] = [];
     let x : text.AnnotatedText = "foo";
     assert.deepStrictEqual(text.mapAnnotation(x,(plainText,annotation,start, startD) => {

@@ -1,9 +1,9 @@
 'use strict';
 // import * as peg from 'pegjs'
 import * as util from 'util'
-import * as textUtil from './../util/text-util'
+import * as textUtil from '../util/text-util'
 import {Range} from 'vscode-languageserver'
-import * as server from './../server'
+import * as server from '../server'
 import * as peg from 'pegjs'
 import {ExpectedItem} from 'pegjs';
 export {ExpectedItem} from 'pegjs';
@@ -277,19 +277,19 @@ function doSkipComment(str:string, idx:number) : SentenceSkip {
 
 /**
  * @returns the length of the parsed command or -1 if there is no [full] command
- * 
+ *
  * S::= BULLET  |  COMMENT S  |  P .
  * P::= ( P )  |  [ P ]  |  " P "  | TEXT P
- * COMMENT::= (* CSTUFF *) 
+ * COMMENT::= (* CSTUFF *)
  * CSTUFF::= TEXT (* CSTUFF *) |
- * 
+ *
  */
 // export function parseSentence(str: string) : number {
 //   // Assume we are starting outside of a comment or parentheses
 //   // match everything up to a period or beginning of a comment or string
 //   let idx = 0;
 //   let allowBullet = true; // whether a bullet may be expected (becomes false after the first non-whitespace)
-  
+
 //   while(true) {
 //     const skipSen = doSkipSentence(str,idx,allowBullet);
 //     idx+= skipSen.skip;
@@ -300,13 +300,13 @@ function doSkipComment(str:string, idx:number) : SentenceSkip {
 //       allowBullet = false; // Some non-whitespace has appeared so we are no longer looking for bullets
 //     else if(!allowBullet && skipSen.bullet!=undefined)
 //       continue; // saw a bullet, but we are only looking for periods -- move on
-    
-      
+
+
 //     if(skipSen.terminator === '.')
 //       break; // we found the end of the sentence
 //     else if (skipSen.terminator === '(') {
 //     } else if (skipSen.terminator === '[') {
-      
+
 //     } else if(skipSen.terminator === '(*') {
 //       // skip through [nested] comments
 //       let nesting = 1;
@@ -344,7 +344,7 @@ function doSkipComment(str:string, idx:number) : SentenceSkip {
 //   else if (/^\s+$/.test(changedText) && /^\s+$/.test(changedText))
 //     return true; // whitespace --> whitespace
 //   else
-//     return false;  
+//     return false;
 // }
 
 // /**
@@ -357,12 +357,12 @@ function doSkipComment(str:string, idx:number) : SentenceSkip {
 //  */
 // function isPassiveEdit(documentText: string, beginOffset: number, endOffset: number, changeText: string) : boolean {
 //   let idx = 0;
-//   
-//   
+//
+//
 //   while(true) {
 //     const skipSen = doSkipSentence(documentText, idx, false);
 //     idx+= skipSen.skip;
-// 
+//
 //     if(endOffset <= idx - skipSen.terminator.length || skipSen.terminator === '.') {
 //       // the change is affecting a command
 //       // only allow whitespace edits
@@ -403,13 +403,13 @@ function removeComments(str: string) : string {
   // match everything up to a period or beginning of a comment or string
   let result = ''; // accumulates normalized text
   let idx = 0;
-  
+
   while(idx < str.length) {
      // find next comment deliminator
     const senMatch = /^((?:[^(]|\((?!\*))*)(\(\*)?/.exec(str.substring(idx));
     idx+= senMatch[0].length;
     result+= senMatch[1]; // accumulate everything but the comment
-    
+
     if(senMatch[2] === '(*') {
       // skip through [nested] comments
       // do NOT accumulate result
@@ -435,7 +435,7 @@ function removeExcessWhitespace(str: string) : string {
   // match everything up to a period or beginning of a comment or string
   let result = ''; // accumulates normalized text
   let idx = 0;
-  
+
   while(idx < str.length) {
     const wsMatch = /^\s*/.exec(str.substring(idx));
     idx+= wsMatch[0].length;
@@ -446,7 +446,7 @@ function removeExcessWhitespace(str: string) : string {
     const senMatch = /^((?:[^\s"])*)(")?/.exec(str.substring(idx));
     idx+= senMatch[0].length;
     result+= senMatch[1];
-    
+
     if(senMatch[2] === '"') {
       result+= '"';
       // skip through string literal
@@ -477,7 +477,7 @@ export function normalizeText(str: string) : string {
 //   // 2. normalize original & edited text
 //   //   a) remove extra whitespace
 //   //   b) remove comments
-//   // 3. return true iff both normalized texts are still equal 
+//   // 3. return true iff both normalized texts are still equal
 //   try {
 //     const editedDocumentText = documentText.substring(0,beginOffset) + changeText + documentText.substring(endOffset);
 //     return normalizeText(documentText) === normalizeText(editedDocumentText);
@@ -487,13 +487,13 @@ export function normalizeText(str: string) : string {
 // }
 
 /**
- * Determines whether the two commands are equivalent modulo whitespace and comments 
+ * Determines whether the two commands are equivalent modulo whitespace and comments
  * @returns `false` if the edit might change the validity of the sentence and thus needs to be reinterpreted
  */
 export function isPassiveDifference(cmd1: string, cmd2: string) : boolean {
   try {
     // normalize: remove comments and collapse whitespace
-    // special: it's okay for whitespace to be introduced or removed around closing period and at the beginning of a sentence 
+    // special: it's okay for whitespace to be introduced or removed around closing period and at the beginning of a sentence
     const normalized1 = normalizeText(' ' + cmd1.replace(/[.]\s*$/, ' . '));
     const normalized2 = normalizeText(' ' + cmd2.replace(/[.]\s*$/, ' . '));
     return normalized1 === normalized2;
@@ -529,7 +529,7 @@ export function sentenceRangeContainment(sentRange: Range, range: Range) : Sente
     return SentenceRangeContainment.Before; // change is before sentence (maybe touching) and nonempty
   else
     return SentenceRangeContainment.Crosses;
-    
+
 }
 
 

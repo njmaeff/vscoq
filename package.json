@@ -40,14 +40,14 @@
         "extensions": [
           ".v"
         ],
-        "configuration": "./client/coq.configuration.json"
+        "configuration": "./static/coq.configuration.json"
       }
     ],
     "grammars": [
       {
         "language": "coq",
         "scopeName": "source.coq",
-        "path": "./client/syntaxes/coq.tmLanguage"
+        "path": "./static/syntaxes/coq.tmLanguage"
       }
     ],
     "configuration": {
@@ -518,7 +518,7 @@
     "snippets": [
       {
         "language": "coq",
-        "path": "./client/snippets/coq.json"
+        "path": "./static/snippets/coq.json"
       }
     ],
     "colors": [
@@ -776,13 +776,16 @@
       }
     ]
   },
-  "main": "./out/client/src/extension",
+  "main": "./out/client/extension",
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "webpack && tsc -b",
     "watch": "tsc -b -w",
     "test": "node ./node_modules/vscode/bin/test",
-    "postinstall": "node ./node_modules/vscode/bin/install"
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "dbg:ext": "npm run clean && npm run compile && code --extensionDevelopmentPath=$(pwd) --inspect-extensions=5006 --folder-uri=$(pwd)/__fixtures__",
+    "clean": "rm -rf out",
+    "package": "node_modules/.bin/vsce package"
   },
   "repository": {
     "type": "git",

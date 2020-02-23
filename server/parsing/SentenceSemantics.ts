@@ -1,7 +1,7 @@
 import * as vscode from 'vscode-languageserver';
 import * as server from '../server';
 import * as parser from './coq-parser';
-import * as textUtil from './../util/text-util';
+import * as textUtil from '../util/text-util';
 import * as path from 'path';
 import * as fs from 'fs';
 
@@ -68,7 +68,7 @@ export class Inductive implements SentenceSemantics {
 
 namespace parseAstSymbols {
   function identToSymbol(ident: parser.Identifier, kind: vscode.SymbolKind, pos: vscode.Position) : vscode.SymbolInformation {
-    return vscode.SymbolInformation.create(ident.text, vscode.SymbolKind.Variable, textUtil.rangeTranslateRelative(pos,parser.locationRangeToRange(ident.loc)));  
+    return vscode.SymbolInformation.create(ident.text, vscode.SymbolKind.Variable, textUtil.rangeTranslateRelative(pos,parser.locationRangeToRange(ident.loc)));
   }
 
   export function definition(ast: parser.SDefinition, pos: vscode.Position) : vscode.SymbolInformation[] {
@@ -130,7 +130,7 @@ export function parseAstForSymbols(ast: parser.Sentence, pos: vscode.Position) :
     case "module-bind": return parseAstSymbols.moduleBind(ast,pos);
     case "module-type": return parseAstSymbols.moduleType(ast,pos);
     case "module-type-bind": return parseAstSymbols.moduleTypeBind(ast,pos);
-    default:  
+    default:
       return []
     }
   } catch(err) {

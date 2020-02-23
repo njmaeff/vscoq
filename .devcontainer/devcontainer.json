@@ -1,0 +1,6 @@
+{
+  "name": "Coq test environment",
+  "dockerComposeFile": ["../docker-compose.yml", "../docker-compose.dev.yml"],
+  "service": "coq-dev",
+  "workspaceFolder": "/workspace"
+}
