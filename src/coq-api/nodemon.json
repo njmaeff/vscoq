@@ -1,0 +1,15 @@
+{
+  "verbose": true,
+  "ignore": ["__test__/*", "fixtures/*"],
+  "ext": "ts,graphql",
+  "execMap": {
+    "ts": "babel-node --extensions .ts"
+  },
+  "watch": [
+    "server.ts",
+    "resolvers.ts",
+    "api.ts",
+    "types.graphql",
+    "lib"
+  ]
+}

@@ -1,0 +1,8 @@
+overwrite: true
+schema: "types.graphql"
+generates:
+  graph-types.ts:
+    plugins:
+      - "typescript"
+      - "typescript-resolvers"
+      - "typescript-operations"

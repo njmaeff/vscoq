@@ -1,0 +1,20 @@
+type Mutation {
+    coqTop: CoqTop
+}
+
+type CoqTop {
+    init(image: String, script: String, executable: String, runArgs: [String]): Boolean
+    destroy: Boolean
+    writeControl: Boolean
+    writeMainChannel: Boolean
+}
+
+type Query {
+    coqTop: QueryCoqTop
+}
+
+type QueryCoqTop {
+    readControl: String
+    readMainChannel: String
+}
+

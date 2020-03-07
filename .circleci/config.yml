@@ -1,0 +1,56 @@
+aliases:
+  - &root-yarn |
+    yarn install --frozen-lockfile --cache-folder ~/.cache/yarn
+
+  - &root-restore-yarn-cache
+    keys:
+      - root-yarn-{{ .Branch }}-{{ checksum "yarn.lock" }}
+      # Fallback in case checksum fails
+      - root-yarn-{{ .Branch }}-
+
+  - &root-save-yarn-cache
+    paths:
+      - node_modules
+      - ~/.cache/yarn
+    key: root-yarn-{{ .Branch }}-{{ checksum "yarn.lock" }}
+
+  - &filter-only
+    branches:
+      only:
+        - master
+        - next
+        - beta
+
+defaults: &defaults
+  docker:
+    - image: circleci/node:10
+
+
+version: 2
+jobs:
+  release:
+    <<: *defaults
+
+    steps:
+      - checkout
+      # Download and cache dependencies
+      - restore_cache: *root-restore-yarn-cache
+
+      - run: *root-yarn
+
+      - save_cache: *root-save-yarn-cache
+
+      - run:
+          name: release
+          command: |
+            git config --global user.email "contact@nikkij.me"
+            git config --global user.name "njmaeff"
+            node-release --run
+
+workflows:
+  version: 2
+  pipeline:
+    jobs:
+      - release:
+          context: njmaeff/env
+          filters: *filter-only

@@ -1,0 +1,11 @@
+{
+  "extends": "../tsconfig",
+  "compilerOptions": {
+    "composite": true,
+    "outDir": "../out/html_views",
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true
+  },
+  "include": ["./"]
+}

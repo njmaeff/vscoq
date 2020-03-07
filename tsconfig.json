@@ -1,13 +1,19 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "target": "es6",
-    "outDir": "out",
-    "lib": ["es6", "dom"],
-    "sourceMap": true,
-    "downlevelIteration": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUnusedLocals": true,
+    "target": "esnext",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "allowJs": true,
+    "declaration": true
   },
-  "include": ["client", "server"]
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/__fixtures__/**",
+    "**/__tests__/**"
+  ]
 }

@@ -1,0 +1,8 @@
+version: "3.7"
+
+services:
+  coq-api.jmaeff.me:
+    working_dir: /workspace/src/coq-api
+    volumes:
+      - ../../:/workspace
+      - /var/run/docker.sock:/tmp/docker.sock

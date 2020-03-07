@@ -1,0 +1,26 @@
+{
+  "name": "@njmaeff/coq-api",
+  "description": "TBD...",
+  "version": "0.0.1",
+  "license": "MIT",
+  "bin": {
+    "coq-api": "bin/cli.js"
+  },
+  "dependencies": {
+    "commander": "^4",
+    "apollo-server": "^2.11.0",
+    "graphql": "^14.6.0",
+    "graphql-import": "^0.7.1",
+    "apollo-boost": "^0.4.7",
+    "lodash.merge": "^4.6.2"
+  },
+  "devDependencies": {
+    "@types/lodash.merge": "^4.6.6"
+  },
+  "scripts": {
+    "dev": "nodemon -L bin/server",
+    "test": "jest",
+    "codegen": "graphql-codegen --watch --config codegen.yml",
+    "type:gen": "quicktype json-types -o types/json.d.ts --just-types --no-enums"
+  }
+}
