@@ -1,13 +1,13 @@
 import {CoqDocument, DocumentCallbacks, TextDocumentItem} from './document';
-import {Settings, DocumentSelector} from './protocol';
+import {DocumentSelector, Settings} from './protocol';
 import * as vscode from 'vscode-languageserver';
 import * as path from 'path';
 import * as fs from 'fs';
 import {PrettifySymbolsMode} from './util/PrettifySymbols';
-import * as nodeAsync from './util/nodejs-async';
 import {CoqTop} from './coqtop/CoqTop';
 import {CoqTop as CoqTop8} from './coqtop/CoqTop8';
 import stringArgv from 'string-argv';
+import * as fs1 from "./util/nodejs-async-fs";
 
 
 const coqProjectFileName = '_CoqProject';
@@ -168,7 +168,7 @@ export class CoqProject {
     this.loadingCoqProjectInProcess = true;
 
     try {
-      const projectFile = await nodeAsync.fs.readFile(this.coqProjectFile(), 'utf8');
+      const projectFile = await fs1.readFile(this.coqProjectFile(), 'utf8');
       this.coqProjectArgs = CoqProject.parseCoqProject(projectFile);
       this.currentSettings.coqtop.args = [...this.coqProjectArgs, ...this.settingsCoqTopArgs];
     } catch(err) {

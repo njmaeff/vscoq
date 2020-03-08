@@ -6,14 +6,19 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "allowJs": true,
-    "declaration": true
+    "declaration": true,
+    "baseUrl": ".",
+    "paths": {
+      "@njmaeff/private-*": ["util/*"],
+      "@njmaeff/*": ["src/*"]
+    }
   },
   "include": [
     "src/**/*.ts"
   ],
   "exclude": [
     "node_modules",
-    "**/__fixtures__/**",
-    "**/__tests__/**"
+    "src/**/__fixtures__/**/*.ts",
+    "src/**/__tests__/**/*.ts"
   ]
 }

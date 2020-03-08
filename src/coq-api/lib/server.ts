@@ -14,8 +14,8 @@ import {CoqProject} from './CoqProject';
 import { RouteId } from './coqtop/coq-proto';
 import * as fs from "fs";
 import * as path from "path";
-import cp = require("child_process")
-import which = require("which");
+import cp from "child_process"
+import which from "which";
 // Create a connection for the server. The connection uses
 // stdin / stdout for message passing
 export let connection: IConnection = createConnection();

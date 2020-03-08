@@ -11,11 +11,11 @@ module.exports = function(wallaby) {
       { pattern: '**/__fixtures__/**', instrument: false },
       { pattern: '**/__snapshots__/**', instrument: false },
       '**/__mocks__/**',
-      'src/**/*.ts',
+      'src/coq-api/**/*.ts',
     ],
     tests: [
       '!**/node_modules/**',
-      'src/**/*.test.ts',
+      'src/coq-api/**/*.test.ts',
     ],
     filesWithNoCoverageCalculated: [
       '**/__mocks__/**',
