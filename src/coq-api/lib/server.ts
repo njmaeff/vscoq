@@ -72,24 +72,6 @@ connection.onShutdown(() => {
   project.shutdown();
 })
 
-// documents.onDidChangeContent((change) => {
-//   var uri = change.document.uri;
-// });
-// The content of a text document has changed. This event is emitted
-// when the text document first opened or when its content has changed.
-// documents.onDidChangeContent((change) => {
-//   var uri = change.document.uri;
-//   if (typeof coqInstances[uri] === "undefined") {
-//   	connection.console.log(`${uri} opened.`);
-//     coqInstances[uri] = new CoqDocument(coqPath, change.document, connection.console, {
-//       sendHighlightUpdates: (h) => sendHighlightUpdates(uri, h),
-//       sendDiagnostics: (diagnostics) => sendDiagnostics(uri, diagnostics)
-//       });
-//   }
-//   else {
-//   }
-// });
-
 export function seekCoqBinPath() {
     try {
         let coqTopBin = which.sync('coqtop');
@@ -130,11 +112,6 @@ connection.onDidChangeConfiguration((change) => {
     }
 });
 
-
-// connection.onDidChangeWatchedFiles((change) => {
-// 	// Monitored files have change in VSCode
-// 	connection.console.log('We received a file change event');
-// });
 
 process.on('SIGBREAK', function () {
   connection.console.log('SIGBREAK fired')

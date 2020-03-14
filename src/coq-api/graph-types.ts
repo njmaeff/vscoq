@@ -25,6 +25,11 @@ export type CoqTopInitArgs = {
   runArgs?: Maybe<Array<Maybe<Scalars['String']>>>
 };
 
+
+export type CoqTopDestroyArgs = {
+  script?: Maybe<Scalars['String']>
+};
+
 export type Mutation = {
    __typename?: 'Mutation',
   coqTop?: Maybe<CoqTop>,
@@ -134,7 +139,7 @@ export type ResolversParentTypes = {
 
 export type CoqTopResolvers<ContextType = any, ParentType extends ResolversParentTypes['CoqTop'] = ResolversParentTypes['CoqTop']> = {
   init?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType, CoqTopInitArgs>,
-  destroy?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>,
+  destroy?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType, CoqTopDestroyArgs>,
   writeControl?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>,
   writeMainChannel?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>,
   __isTypeOf?: isTypeOfResolverFn<ParentType>,

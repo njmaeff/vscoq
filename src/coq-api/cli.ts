@@ -10,11 +10,11 @@ const exit = (e) =>
 export function main()
 {
     program
-        .description('which id should be built? the default id is "default"')
-        .option('--dry-run', 'output config to console')
+        .command('install [host]', 'what host should we install the api server')
+        .option('--socket-path', 'is there a special socket path?')
         .action(function(id, opts)
         {
-            api.run(opts)
+            api.install(opts)
                 .catch(exit);
         })
 

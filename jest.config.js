@@ -1,5 +1,9 @@
-const { modulePathIgnorePatterns, testMatch } = require('@njmaeff/private-config/jest.common');
+const {modulePathIgnorePatterns, testMatch} = require('@njmaeff/private-config/jest.common');
 module.exports = {
-  testMatch,
-  modulePathIgnorePatterns
+    testMatch,
+    modulePathIgnorePatterns,
+    moduleNameMapper: {
+        "@njmaeff/coq-(.*)": "<rootDir>/src/coq-$1",
+        "@njmaeff/private-(.*)": "<rootDir>/util/$1",
+    }
 }

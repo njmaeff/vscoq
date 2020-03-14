@@ -782,7 +782,6 @@
     "compile": "webpack && tsc -b",
     "watch": "tsc -b -w",
     "test": "node node_modules/vscode/bin/test",
-    "postinstall": "vscode-install",
     "dbg:ext": "npm run clean && npm run compile && code --extensionDevelopmentPath=$(pwd) --inspect-extensions=5006 --folder-uri=$(pwd)/__fixtures__",
     "clean": "rm -rf out",
     "package": "node_modules/.bin/vsce package"

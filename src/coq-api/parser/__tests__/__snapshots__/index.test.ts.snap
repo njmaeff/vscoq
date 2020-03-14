@@ -1,0 +1,130 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`babel examples babel ast: const x = () => "hello" 1`] = `
+Node {
+  "comments": Array [],
+  "end": 23,
+  "errors": Array [],
+  "loc": SourceLocation {
+    "end": Position {
+      "column": 23,
+      "line": 1,
+    },
+    "start": Position {
+      "column": 0,
+      "line": 1,
+    },
+  },
+  "program": Node {
+    "body": Array [
+      Node {
+        "declarations": Array [
+          Node {
+            "end": 23,
+            "id": Node {
+              "end": 7,
+              "loc": SourceLocation {
+                "end": Position {
+                  "column": 7,
+                  "line": 1,
+                },
+                "identifierName": "x",
+                "start": Position {
+                  "column": 6,
+                  "line": 1,
+                },
+              },
+              "name": "x",
+              "start": 6,
+              "type": "Identifier",
+            },
+            "init": Node {
+              "async": false,
+              "body": Node {
+                "end": 23,
+                "extra": Object {
+                  "raw": "\\"hello\\"",
+                  "rawValue": "hello",
+                },
+                "loc": SourceLocation {
+                  "end": Position {
+                    "column": 23,
+                    "line": 1,
+                  },
+                  "start": Position {
+                    "column": 16,
+                    "line": 1,
+                  },
+                },
+                "start": 16,
+                "type": "StringLiteral",
+                "value": "hello",
+              },
+              "end": 23,
+              "generator": false,
+              "id": null,
+              "loc": SourceLocation {
+                "end": Position {
+                  "column": 23,
+                  "line": 1,
+                },
+                "start": Position {
+                  "column": 10,
+                  "line": 1,
+                },
+              },
+              "params": Array [],
+              "start": 10,
+              "type": "ArrowFunctionExpression",
+            },
+            "loc": SourceLocation {
+              "end": Position {
+                "column": 23,
+                "line": 1,
+              },
+              "start": Position {
+                "column": 6,
+                "line": 1,
+              },
+            },
+            "start": 6,
+            "type": "VariableDeclarator",
+          },
+        ],
+        "end": 23,
+        "kind": "const",
+        "loc": SourceLocation {
+          "end": Position {
+            "column": 23,
+            "line": 1,
+          },
+          "start": Position {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "start": 0,
+        "type": "VariableDeclaration",
+      },
+    ],
+    "directives": Array [],
+    "end": 23,
+    "interpreter": null,
+    "loc": SourceLocation {
+      "end": Position {
+        "column": 23,
+        "line": 1,
+      },
+      "start": Position {
+        "column": 0,
+        "line": 1,
+      },
+    },
+    "sourceType": "script",
+    "start": 0,
+    "type": "Program",
+  },
+  "start": 0,
+  "type": "File",
+}
+`;

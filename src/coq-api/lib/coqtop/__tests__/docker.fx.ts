@@ -1,28 +1,11 @@
 import Docker from "dockerode";
-import {Writable} from "stream"
-import {Fixture, JsonType, extendTimeout} from "@njmaeff/private-test";
+import {extendTimeout, Fixture, JsonType} from "@njmaeff/private-test";
+import {StringStream} from "@njmaeff/coq-api/lib/stream";
 
 extendTimeout();
 let jsonType = JsonType();
 let fixture = Fixture();
 let docker = new Docker({socketPath: '/var/run/docker.sock'});
-
-export function StringStream() {
-    let output = '';
-    let stream = new Writable({
-        write(chunk: any, encoding: string, callback: (error?: (Error | null)) => void): void {
-            output += chunk.toString();
-            callback();
-        }
-    });
-
-    return {
-        stream,
-        get output() {
-            return output;
-        },
-    }
-}
 
 describe('static commands', () => {
 

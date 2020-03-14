@@ -2,7 +2,18 @@ version: "3.7"
 
 services:
   coq-api.jmaeff.me:
+    image: ide
+    user: "1000"
     working_dir: /workspace/src/coq-api
+    command: yarn dev:start
     volumes:
       - ../../:/workspace
-      - /var/run/docker.sock:/tmp/docker.sock
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+    - "4000:4000"
+    networks:
+      me.jmaeff.coq-api.network.default:
+
+networks:
+  me.jmaeff.coq-api.network.default:
+    name: me.jmaeff.coq-api.network.default

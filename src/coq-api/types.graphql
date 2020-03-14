@@ -4,9 +4,9 @@ type Mutation {
 
 type CoqTop {
     init(image: String, script: String, executable: String, runArgs: [String]): Boolean
-    destroy: Boolean
-    writeControl: Boolean
-    writeMainChannel: Boolean
+    destroy(script: String): Boolean
+    writeControl(xml: [String]): Boolean
+    writeMainChannel(script: String, xml: String): Boolean
 }
 
 type Query {

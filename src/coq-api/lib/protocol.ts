@@ -328,15 +328,6 @@ export const CoqStmFocusNotification = {
 
 
 export enum ComputingStatus {Finished, Computing, Interrupted}
-// export interface NotifyComputingStatusParams extends NotificationParams {
-//   status: ComputingStatus;
-//   computeTimeMS: number;
-// }
-// export namespace CoqComputingStatusNotification {
-//   export const type: NotificationType<NotifyComputingStatusParams> =
-//   { get method() { return 'coqtop/computingStatus' }
-//   , _:undefined };
-// }
 
 export interface NotifyLtacProfResultsParams extends NotificationParams {
   results: LtacProfResults

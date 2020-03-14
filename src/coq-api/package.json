@@ -12,13 +12,21 @@
     "graphql": "^14.6.0",
     "graphql-import": "^0.7.1",
     "apollo-boost": "^0.4.7",
-    "lodash.merge": "^4.6.2"
+    "lodash.merge": "^4.6.2",
+    "uuid": "^7.0.2",
+    "xml2js": "^0.4.23",
+    "http-terminator": "^2.0.2"
   },
   "devDependencies": {
-    "@types/lodash.merge": "^4.6.6"
+    "@types/lodash.merge": "^4.6.6",
+    "@types/uuid": "^7.0.0",
+    "@types/xml2js": "^0.4.5"
   },
   "scripts": {
-    "dev": "nodemon -L bin/server",
+    "dev:start": "nodemon server.ts",
+    "dev": "docker-compose up coq-api.jmaeff.me",
+    "dev:dbg": "docker-compose -f docker-compose.yml -f docker-compose.dbg.yml up coq-api.jmaeff.me",
+    "dev:dbg-entry": "nodemon --inspect=0.0.0.0:9229 ./bin/dev.js",
     "test": "jest",
     "codegen": "graphql-codegen --watch --config codegen.yml",
     "type:gen": "quicktype json-types -o types/json.d.ts --just-types --no-enums"

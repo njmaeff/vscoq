@@ -1,0 +1,7 @@
+version: "3.7"
+
+services:
+  coq-api.jmaeff.me:
+    command: yarn dev:dbg-entry
+    ports:
+    - "9229:9229"
